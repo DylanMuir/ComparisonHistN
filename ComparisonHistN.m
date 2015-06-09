@@ -64,6 +64,9 @@ DEF_fP = @(a,b)ranksum(a(~isnan(a)), b(~isnan(b)));
 
 %% -- Clean and reshape input data
 
+if (~iscell(cvfData))
+   cvfData = {cvfData};
+end
 cvfData = cvfData(~cellfun(@isempty, cvfData));
 cvfData = cellfun(@(c)reshape(c, [], 1), cvfData, 'UniformOutput', false);
 

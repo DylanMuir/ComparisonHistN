@@ -77,6 +77,10 @@ if (~exist('cfPips', 'var'))
    cfPips = cellfun(@nanmedian, cvfData, 'UniformOutput', false);
 end
 
+if (numel(cfPips) ~= numel(cvfData))
+   error('*** ComparisonHistN: Error: Number of pips does not match number of data sets.');
+end
+
 if (~exist('vfP', 'var'))
    vfP = DEF_fP;
 end
